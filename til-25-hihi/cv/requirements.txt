@@ -1,0 +1,20 @@
+# Dependencies for the CV container.
+
+fastapi==0.115.12
+uvicorn[standard]==0.34.2
+ultralytics==8.3.137
+sahi
+
+numpy
+pandas
+tensorflow
+
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch==2.7.0+cu128
+torchvision
+nvidia-pyindex
+nvidia-tensorrt
+
+tqdm
+opencv-python
+pillow

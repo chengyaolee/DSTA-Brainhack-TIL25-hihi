@@ -1,0 +1,10 @@
+yolo11n.pt -> pretrained model
+yolo11_v1.pt ->  pretrained model -> trained model
+yolo11_v2.pt -> pretrained model -> albumentations
+yolo11_v3.pt -> yolo11_v1.pt -> albumentations
+yolo_v4.pt -> using yolo11m.pt
+yolo_v4.1.pt -> yolo_v4 trained on more noise (worse than v4)
+yolo_v5.pt -> using yolo11m.pt but trained on 1280x1280
+best_v6.pt -> using yolo11m.pt, remove limit on gaussian noise
+v7 -> Reduced probabilities across the augments 
+v8 -> Tried adjusting training params for learning rate and minor tuning for augments
