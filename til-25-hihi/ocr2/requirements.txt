@@ -1,0 +1,7 @@
+# requirements.txt (for Docker)
+fastapi
+uvicorn[standard]
+opencv-python-headless # For image processing
+python-multipart
+numpy
+paddleocr==2.10.0 # Using the version from your freeze

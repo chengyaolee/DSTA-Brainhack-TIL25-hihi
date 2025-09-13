@@ -1,0 +1,33 @@
+# User specified v0.8.5. Ensure this version is stable and works correctly
+# with Qwen2-VL's multimodal OpenAI API input. If issues arise with image handling
+# (like the old <|image_pad|> problem), consider reverting to a known good version like v0.4.3.
+FROM vllm/vllm-openai:v0.8.5
+
+WORKDIR /workspace
+
+# Install dependencies for our FastAPI server
+# `requests` is likely included with vllm, but being explicit is fine.
+# `python-multipart` is good for FastAPI if you ever handle form data/file uploads.
+RUN pip install --no-cache-dir fastapi "uvicorn[standard]==0.29.0" requests python-multipart pydantic
+
+# Copy your local model directory into the image.
+# Ensure Qwen2.5-VL-3B-Instruct is in the same directory as your Dockerfile
+COPY ./Qwen2.5-VL-3B-Instruct /workspace/Qwen2.5-VL-3B-Instruct
+
+# Copy the FastAPI application source code from your local 'src' directory
+COPY ./src /workspace/src
+
+# Copy the startup script and make it executable
+COPY ./start.sh /workspace/start.sh
+RUN chmod +x /workspace/start.sh
+
+# Expose the port for the vLLM server and the port for our FastAPI app
+EXPOSE 8005
+EXPOSE 5003
+
+# Use the new startup script as the main command for the container
+ENTRYPOINT ["/workspace/start.sh"]
+
+# CMD is not strictly needed now as start.sh handles everything.
+# It could be an empty JSON array or just removed.
+CMD []
