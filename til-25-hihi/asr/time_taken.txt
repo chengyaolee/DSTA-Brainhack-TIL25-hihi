@@ -1,0 +1,3 @@
+small: 3.5-4s per step pretrain: 0.835
+medium: 6.2-6.7s per step pretrain: 0.870
+large: 7-8s per step pretrain: unk

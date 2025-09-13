@@ -1,0 +1,8 @@
+hihi-asr:tiny 
+score=0.839, speed=0.818
+
+hihi-asr:fast2 (tiny2)
+score=0.868, speed=0.950
+
+hihi-asr:fast-small
+score=0.933, speed=0.902
