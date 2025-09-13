@@ -1,0 +1,6 @@
+# Dependencies for RL.
+
+fastapi
+uvicorn[standard]
+torch
+numpy
